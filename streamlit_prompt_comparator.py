@@ -4,8 +4,16 @@ from dotenv import load_dotenv
 import os
 
 # 환경 변수 로드
-load_dotenv()
-openai.api_key = os.getenv("OPENAI_API_KEY")
+# 사용자에게 API 키 입력 받기
+user_api_key = st.text_input("OpenAI API 키를 입력하세요", type="password")
+
+# 키가 없으면 실행 중단
+if not user_api_key:
+    st.warning("OpenAI API 키를 입력해야 합니다.")
+    st.stop()
+
+# 입력된 키로 설정
+openai.api_key = user_api_key
 
 SYSTEM_PROMPT = """당신은 도움이 되는 AI 어시스턴트입니다. 
 다음 규칙을 엄격히 따르세요:
