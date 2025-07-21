@@ -202,7 +202,7 @@ with st.expander("🔧 개별 AI 모델과 대화하기"):
                 st.write(message["content"])
         
         with st.form("form1", clear_on_submit=True):
-            prompt1 = st.text_input(f"{model1}에게 개별 질문하기", key="input1")
+            prompt1 = st.text_area(f"{model1}에게 개별 질문하기", key="input1", height=100)
             submitted1 = st.form_submit_button("전송", use_container_width=True)
             if submitted1 and prompt1:
                 st.session_state.messages1.append({"role": "user", "content": prompt1})
@@ -220,7 +220,7 @@ with st.expander("🔧 개별 AI 모델과 대화하기"):
                 st.write(message["content"])
         
         with st.form("form2", clear_on_submit=True):
-            prompt2 = st.text_input(f"{model2}에게 개별 질문하기", key="input2")
+            prompt2 = st.text_area(f"{model2}에게 개별 질문하기", key="input2", height=100)
             submitted2 = st.form_submit_button("전송", use_container_width=True)
             if submitted2 and prompt2:
                 st.session_state.messages2.append({"role": "user", "content": prompt2})
